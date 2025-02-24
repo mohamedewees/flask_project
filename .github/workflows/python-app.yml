@@ -90,6 +90,10 @@ jobs:
         scp -r ./* ubuntu@$EC2_INSTANCE_ID:/home/runner/work/flask_project/flask_project
     
     - name: run the app
+      env:
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.EC2_SSH_KEY }}
+        AWS_REGION: 'us-east-1'
+        EC2_INSTANCE_ID: ${{ secrets.EC2_HOST }}
       run: |
         ssh ubuntu@$EC2_INSTANCE_ID << 'EOF'
         cd /home/runner/work/flask_project/flask_project
