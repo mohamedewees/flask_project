@@ -82,5 +82,10 @@ jobs:
         EC2_INSTANCE_ID: ${{ secrets.EC2_HOST }}
       run: |
         ssh ubuntu@$EC2_INSTANCE_ID << 'EOF'
-        sudo pip3.12 install flask --break-system-packages
+        sudo apt update && sudo apt upgrade -y
+        sudo apt install python3
+        sudo apt install python3-pip -y
+        sudo pip3.12 install flask --break-system-packages --force-reinstall --ignore-installed
+        mkdir -p /home/runner/work/flask_project/flask_project
         EOF
+        scp -r ./* ubuntu@$EC2_INSTANCE_ID:/home/runner/work/flask_project/flask_project
