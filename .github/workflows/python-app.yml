@@ -97,5 +97,5 @@ jobs:
       run: |
         ssh ubuntu@$EC2_INSTANCE_ID << 'EOF'
         cd /home/runner/work/flask_project/flask_project
-        python3 my_app.py
+        nohup python3 my_app.py &
         EOF
