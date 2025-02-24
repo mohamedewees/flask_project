@@ -84,4 +84,3 @@ jobs:
         ssh ubuntu@$EC2_INSTANCE_ID << 'EOF'
         pip install flask
         EOF
-        scp -r ./* ubuntu@$EC2_INSTANCE_ID:/home/runner/work/flask_project/flask_project
