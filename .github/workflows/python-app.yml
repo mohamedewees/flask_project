@@ -82,5 +82,5 @@ jobs:
         EC2_INSTANCE_ID: ${{ secrets.EC2_HOST }}
       run: |
         ssh ubuntu@$EC2_INSTANCE_ID << 'EOF'
-        pip install flask
+        sudo pip install flask
         EOF
