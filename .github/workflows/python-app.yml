@@ -89,3 +89,10 @@ jobs:
         mkdir -p /home/runner/work/flask_project/flask_project
         EOF
         scp -r ./* ubuntu@$EC2_INSTANCE_ID:/home/runner/work/flask_project/flask_project
+    
+    - name: run the app
+      run: |
+        ssh ubuntu@$EC2_INSTANCE_ID << 'EOF'
+        cd /home/runner/work/flask_project/flask_project
+        python3 my_app.py
+        EOF
