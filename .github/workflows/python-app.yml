@@ -81,7 +81,4 @@ jobs:
         AWS_REGION: 'us-east-1'
         EC2_INSTANCE_ID: ${{ secrets.EC2_HOST }}
       run: |
-        ssh ubuntu@$EC2_INSTANCE_ID <<EOF
-        sudo mkdir -p /var/web_app
-        EOF
         scp -r /home/runner/work/flask_project/flask_project ubuntu@$EC2_INSTANCE_ID:/var/web_app
