@@ -82,10 +82,6 @@ jobs:
         EC2_INSTANCE_ID: ${{ secrets.EC2_HOST }}
       run: |
         ssh ubuntu@$EC2_INSTANCE_ID << 'EOF'
-        sudo apt update && sudo apt upgrade -y
-        sudo apt install python3
-        sudo apt install python3-pip -y
-        pip install flake8 pytest flask
-        mkdir -p /home/runner/work/flask_project/flask_project
+        pip install flask
         EOF
         scp -r ./* ubuntu@$EC2_INSTANCE_ID:/home/runner/work/flask_project/flask_project
