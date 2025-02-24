@@ -81,6 +81,6 @@ jobs:
         AWS_REGION: 'us-east-1'
         EC2_INSTANCE_ID: ${{ secrets.EC2_HOST }}
       run: |
-        ssh ubuntu@$secrets.EC2_INSTANCE_ID <<EOF
+        ssh ubuntu@$EC2_INSTANCE_ID <<EOF
         sudo mkdir -p /var/ewees
         EOF
